@@ -2,21 +2,28 @@
 
 ## Overview
 
-This project implements a Finite State Machine (FSM) based Traffic Light Controller using Verilog HDL. The system controls traffic signals for two roads with sequential state transitions and timing-based signal control.
+This project implements a Finite State Machine (FSM) based Traffic Light Controller using Verilog HDL. The system controls traffic signals for two roads using sequential state transitions and timing-based signal control.
+
+The project also includes behavioral simulation, waveform verification, VCD generation, Python-based visualization, and GitHub Actions CI workflow integration.
+
+---
 
 ## Features
 
-* Moore FSM Architecture
+* FSM-based Traffic Light Control
 * Verilog HDL RTL Design
 * Clock Divider Integration
-* Traffic Signal Timing Control
+* Behavioral Simulation & Verification
+* VCD Waveform Generation
+* Python Tkinter Visualization
 * Basys 3 FPGA Support
-* Behavioral Simulation
-* Testbench Verification
+* GitHub Actions CI Workflow
+
+---
 
 ## FSM State Flow
 
-```text id="5xwjlwm"
+```text
 S0 → S1 → S2 → S3 → S0
 ```
 
@@ -27,9 +34,11 @@ S0 → S1 → S2 → S3 → S0
 | S2    | Red    | Green  |
 | S3    | Red    | Yellow |
 
+---
+
 ## Project Structure
 
-```text id="mjlwm8"
+```text
 Traffic-Light-Controller-FSM/
 │
 ├── rtl/
@@ -43,47 +52,126 @@ Traffic-Light-Controller-FSM/
 │   └── basys3.xdc
 │
 ├── waveform/
+│   └── fsm_full_cycle_waveform.png
 │
-├── docs/
+├── verification/
+│   └── verification_notes.md
 │
 ├── visualization/
+│   ├── traffic_visualizer.py
+│   ├── traffic.vcd
+│   └── traffic_visualizer_output.png
+│
+├── .github/
+│   └── workflows/
+│       └── verilog-ci.yml
 │
 └── README.md
 ```
 
-## Tools Used
+---
+
+## Tools & Technologies
 
 * Verilog HDL
 * Xilinx Vivado
 * Basys 3 FPGA
 * Vivado Simulator
+* Python
+* Tkinter
+* VCDVCD
+* GitHub Actions
 
-## Simulation
+---
 
-Behavioral simulation was performed using Vivado to verify FSM transitions and output timing behavior.
+## Waveform Simulation
+
+Behavioral simulation was performed in Vivado to verify FSM transitions and traffic signal sequencing.
+
 ![Waveform](waveform/fsm_full_cycle_waveform.png)
+
+---
 
 ## Python Visualization
 
-A Python-based GUI visualization was developed using Tkinter to demonstrate the FSM traffic light behavior. The visualization replicates traffic signal transitions using outputs generated from Verilog simulation waveforms.
-![Visualizer](visualization/traffic_visualizer_output.png)
+A Python Tkinter-based visualizer was developed to demonstrate FSM traffic signal behavior using Verilog simulation outputs.
 
 ### Visualization Features
 
 * Real-time Traffic Light Animation
-* FSM State Visualization
-* Verilog Simulation Integration
-* Traffic Signal Sequence Demonstration
+* FSM State Demonstration
+* Traffic Signal Sequencing
+* Verilog-linked Visualization Flow
 
+![Traffic Visualizer](visualization/traffic_visualizer_output.png)
+
+---
+
+## GitHub Actions CI Workflow
+
+Automated CI workflow was implemented using GitHub Actions.
+
+### CI Features
+
+* Automatic Verilog Compilation
+* Behavioral Simulation Validation
+* Python Script Verification
+* Continuous Integration Support
+
+---
+
+## Verification Summary
+
+### Verified FSM Sequence
+
+```text
+S0 → S1 → S2 → S3 → S0
+```
+
+### Verification Performed
+
+* FSM State Transition Validation
+* Waveform Analysis
+* Output Signal Verification
+* Clock Divider Validation
+* VCD Generation & Parsing
+* Python Visualization Validation
+
+---
+
+## FPGA Support
+
+The design includes Basys 3 FPGA constraint support for future hardware implementation and real-time traffic light demonstration.
+
+---
 
 ## Future Enhancements
 
-* Real-time FPGA Hardware Implementation
-* Pedestrian Crossing System
 * Smart Traffic Density Detection
-* Emergency Vehicle Priority Control
+* Pedestrian Crossing Control
+* Emergency Vehicle Override
+* Real-time FPGA Hardware Demonstration
+* Advanced Verification using SystemVerilog Assertions
+
+---
 
 ## Contributors
 
-* Sriya Adimulam — RTL Design & FPGA Implementation
-* Lakshmi Omkareswar Thummagunta — Verification, Visualization & Documentation
+### Sriya Adimulam
+
+* RTL Design
+* FSM Implementation
+* FPGA Constraint Integration
+
+### Lakshmi Omkareswar Thummagunta
+
+* Verification & Simulation
+* Waveform Validation
+* Python Visualization
+* Documentation & CI Workflow
+
+---
+
+## Conclusion
+
+This project demonstrates the complete workflow of digital system design including RTL development, FSM implementation, simulation, verification, waveform analysis, Python-based visualization, and CI automation using GitHub Actions.
