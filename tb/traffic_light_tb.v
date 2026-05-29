@@ -59,17 +59,20 @@ begin
 
     $dumpfile("traffic.vcd");
     $dumpvars(0, traffic_light_tb);
-
+    
     clk = 0;
     reset = 1;
 
     #20;
     reset = 0;
 
-    #100000;
-
+    #5000;
+    
     $finish;
-
+    
+    $monitor("TIME=%0t | A_G=%b A_Y=%b A_R=%b | B_G=%b B_Y=%b B_R=%b",
+    $time, A_G, A_Y, A_R, B_G, B_Y, B_R);
+    
 end
 
 endmodule

@@ -92,7 +92,7 @@ begin
 
         S0:
         begin
-            if(counter >= 10)
+            if(counter >= 2)
                 next_state = S1;
             else
                 next_state = S0;
@@ -100,7 +100,7 @@ begin
 
         S1:
         begin
-            if(counter >= 3)
+            if(counter >= 1)
                 next_state = S2;
             else
                 next_state = S1;
@@ -108,7 +108,7 @@ begin
 
         S2:
         begin
-            if(counter >= 10)
+            if(counter >= 2)
                 next_state = S3;
             else
                 next_state = S2;
@@ -116,7 +116,7 @@ begin
 
         S3:
         begin
-            if(counter >= 3)
+            if(counter >= 1)
                 next_state = S0;
             else
                 next_state = S3;

@@ -61,10 +61,23 @@ Traffic-Light-Controller-FSM/
 ## Simulation
 
 Behavioral simulation was performed using Vivado to verify FSM transitions and output timing behavior.
+![Waveform](waveform/fsm_full_cycle_waveform.png)
+
+## Python Visualization
+
+A Python-based GUI visualization was developed using Tkinter to demonstrate the FSM traffic light behavior. The visualization replicates traffic signal transitions using outputs generated from Verilog simulation waveforms.
+![Visualizer](visualization/traffic_visualizer_output.png)
+
+### Visualization Features
+
+* Real-time Traffic Light Animation
+* FSM State Visualization
+* Verilog Simulation Integration
+* Traffic Signal Sequence Demonstration
+
 
 ## Future Enhancements
 
-* Python-based Traffic Visualization
 * Real-time FPGA Hardware Implementation
 * Pedestrian Crossing System
 * Smart Traffic Density Detection

@@ -26,7 +26,7 @@ begin
     else
     begin
 
-        if(counter == 1)
+        if(counter == 2)
         begin
             slow_clk <= ~slow_clk;
             counter <= 0;
