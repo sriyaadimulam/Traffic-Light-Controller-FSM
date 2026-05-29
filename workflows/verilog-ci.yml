@@ -1,0 +1,55 @@
+id="jlwm28"
+name: Traffic Light Controller CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+
+  verilog-simulation:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Install Icarus Verilog
+      run: |
+        sudo apt update
+        sudo apt install -y iverilog
+
+    - name: Compile Verilog Design
+      run: |
+        iverilog -o traffic_sim \
+        rtl/traffic_light_controller.v \
+        rtl/clock_divider.v \
+        tb/traffic_light_tb.v
+
+    - name: Run Verilog Simulation
+      run: |
+        vvp traffic_sim
+
+  python-visualization:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install Python Dependencies
+      run: |
+        pip install vcdvcd
+
+    - name: Verify Python Script Syntax
+      run: |
+        python -m py_compile visualization/traffic_visualizer.py
